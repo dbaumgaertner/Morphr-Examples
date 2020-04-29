@@ -1,0 +1,70 @@
+[
+  {
+    "type": "Job",
+    "key": "CAD-Morphing",
+    "model_tolerance": 0.001,
+    "info_level": 2,
+    "tasks": [
+      "Import Displacement Field",
+      "Import IBRA",
+      "Export MDPA",
+      "Apply Displacement Conditions",
+      "#Apply Shell Stiffness",
+      "Apply Coupling Conditions",
+      "#Apply Alpha Regularization",
+      "Solve",
+      "Export IBRA"
+    ]
+  },
+  {
+    "key": "Import Displacement Field",
+    "type": "ImportDisplacementField",
+    "mesh_0": "mesh_0.obj",
+    "mesh_1": "mesh_1.obj"
+  },
+  {
+    "key": "Export MDPA",
+    "type": "ExportMdpa",
+    "path": "shape_update.mdpa"
+  },
+  {
+    "key": "Import IBRA",
+    "type": "ImportIbra",
+    "path": "cad_0.ibra"
+  },
+  {
+    "key": "Apply Displacement Conditions",
+    "type": "ApplyMeshDisplacement",
+    "weight": 1
+  },
+  {
+    "key": "Apply Shell Stiffness",
+    "type": "ApplyShell3P",
+    "thickness": 1,
+    "youngs_modulus": 1,
+    "poissons_ratio": 0,
+    "weight": 0.01
+  },
+  {
+    "key": "Apply Coupling Conditions",
+    "type": "ApplyEdgeCoupling",
+    "weight": {"displacements": 100, "rotations": 0.01}
+  },
+  {
+    "key": "Apply Alpha Regularization",
+    "type": "ApplyAlphaRegularization",
+    "weight": 1
+  },
+  {
+    "key": "Solve",
+    "type": "SolveNonlinear",
+    "max_iterations": 3,
+    "damping": 1e-8,
+    "auto_scale": true
+  },
+  {
+    "key": "Export IBRA",
+    "type": "ExportIbra",
+    "path": "cad_1.ibra"
+  }
+]
