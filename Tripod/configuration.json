@@ -48,7 +48,7 @@
   {
     "key": "Apply Coupling Conditions",
     "type": "ApplyEdgeCoupling",
-    "weight": {"displacements": 100, "rotations": 0.01}
+    "weight": {"displacement": 100, "rotation": 0.01}
   },
   {
     "key": "Apply Alpha Regularization",
