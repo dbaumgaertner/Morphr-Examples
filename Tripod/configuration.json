@@ -35,6 +35,7 @@
   {
     "key": "Apply Displacement Conditions",
     "type": "ApplyMeshDisplacement",
+    "max_distance": 0.1,
     "weight": 1
   },
   {
